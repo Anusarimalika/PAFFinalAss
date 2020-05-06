@@ -1,8 +1,0 @@
-INDEX VERSION 1.4+/Users/binuri/Desktop/FinalPAF/.metadata/.plugins/org.eclipse.wst.jsdt.core/indexes
-3827101814.index
-439412713.index
-787132499.index
-1862182945.index
-2140443969.index
-4039565174.index
-533381476.index
