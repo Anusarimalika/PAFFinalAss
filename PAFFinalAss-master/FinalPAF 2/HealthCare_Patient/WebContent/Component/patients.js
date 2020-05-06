@@ -56,22 +56,24 @@ function onPatientSaveComplete(response, status) {
 	$("#PatientForm")[0].reset();
 }
 
-////UPDATE==========================================
-//$(document).on("click", ".btnUpdate", function(event)
-//		{
-//			$("#hidDoctorIDSave").val($(this).closest("tr").find('td:eq(0)').text());
-//			$("#fName").val($(this).closest("tr").find('td:eq(1)').text());
-//			$("#lNmae").val($(this).closest("tr").find('td:eq(2)').text());
-//			$("#gender").val($(this).closest("tr").find('td:eq(3)').text());
-//			$("#age").val($(this).closest("tr").find('td:eq(4)').text());
-//			$("#docNIC").val($(this).closest("tr").find('td:eq(5)').text());
-//			$("#docEmail").val($(this).closest("tr").find('td:eq(6)').text());
-//			$("#passwod").val($(this).closest("tr").find('td:eq(7)').text());
-//			$("#phoneNumber").val($(this).closest("tr").find('td:eq(8)').text());
-//		});
-//
-//
-//
+//UPDATE==========================================
+$(document).on("click", ".btnUpdate", function(event)
+		{
+			$("#hidPatientIDSave").val($(this).closest("tr").find('td:eq(0)').text());
+			$("#firstName").val($(this).closest("tr").find('td:eq(1)').text());
+			$("#lastName").val($(this).closest("tr").find('td:eq(2)').text());
+			$("#nic").val($(this).closest("tr").find('td:eq(3)').text());
+			$("#address").val($(this).closest("tr").find('td:eq(4)').text());
+			$("#gender").val($(this).closest("tr").find('td:eq(5)').text());
+			$("#email").val($(this).closest("tr").find('td:eq(6)').text());
+			$("#age").val($(this).closest("tr").find('td:eq(7)').text());
+			$("#phone").val($(this).closest("tr").find('td:eq(8)').text());
+			$("#admitted").val($(this).closest("tr").find('td:eq(8)').text());
+
+		});
+
+
+
 //	
 //	//Remove
 //	$(document).on("click", ".btnRemove", function(event)
@@ -88,7 +90,7 @@ function onPatientSaveComplete(response, status) {
 //				}
 //			 });
 //			});
-//
+
 //	
 //		function onDoctorDeleteComplete(response, status)
 //		{
@@ -135,7 +137,7 @@ function onPatientSaveComplete(response, status) {
 				return "Insert NIC.";
 			}
 			
-			// NIC
+			// Address
 			if ($("#address").val().trim() == "") {
 				return "Insert Address.";
 			}
@@ -164,7 +166,7 @@ function onPatientSaveComplete(response, status) {
 			}
 			
 
-			// phone number
+			// Admitted Date
 			if ($("#admitted").val().trim() == "") {
 				return "Insert Admitted Date.";
 			}

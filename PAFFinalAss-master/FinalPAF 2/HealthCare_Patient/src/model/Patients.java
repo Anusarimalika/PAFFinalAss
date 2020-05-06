@@ -161,59 +161,63 @@ private Connection connect() {
 		
 		return output;
 		}
-}
+
 
 		    
-//		public String updatePatients(String pId,String pFname,String pLname,String pNIC,String pAddress, String pGender,String pEmail,String pAge,String pPhone,
-//	               String pAdmitted) 
-//		{
-//			
-//		     String output = "";
-//		     try
-//		{
-//		    	 
-//		
-//		          Connection con = connect(); 
-//		          
-//		          if (con == null)
-//		          {return "Error while connecting to the database for updating."; }
-//		          
-//		           
-//		// create a prepared statement
-//		          String query = "UPDATE patient SET pFname=?,pLname=?,pNIC=?,pAddress=?,pGender=?,pEmail=?,pAge=?,pPhone=?,pAdmitted=? WHERE pId=?";
-//		          
-//		          PreparedStatement preparedStmt = con.prepareStatement(query);
-//		          
-//		// binding values
-//            preparedStmt.setString(1, pFname); 
-//		    preparedStmt.setString(2, pLname); 
-//		    preparedStmt.setString(3, pNIC); 
-//		    preparedStmt.setString(4,pAddress); 
-//		    preparedStmt.setString(5, pGender); 
-//		    preparedStmt.setString(6, pEmail); 
-//			preparedStmt.setInt(7, Integer.parseInt(pAge));
-//			preparedStmt.setInt(8, Integer.parseInt(pPhone));
-//		    preparedStmt.setString(9, pAdmitted);
-//			preparedStmt.setInt(10, Integer.parseInt(pId));
-//
-//
-//
-//		    
-//		 // execute the statement
-//		preparedStmt.execute(); 
-//		con.close();
-//		
-//		output = "Updated successfully"; 
-//		}
-//		catch (Exception e)
-//		     {
-//		        output = "Error while updating the patients.";
-//		        System.err.println(e.getMessage());
-//		} 
-//		
-//		return output;
-//		}
-//		
+		public String updatePatients(String pId,String pFname,String pLname,String pNIC,String pAddress, String pGender,String pEmail,String pAge,String pPhone,
+	               String pAdmitted) 
+		{
+			
+		     String output = "";
+		     try
+		{
+		    	 
+		
+		          Connection con = connect(); 
+		          
+		          if (con == null)
+		          {return "Error while connecting to the database for updating."; }
+		          
+		           
+		// create a prepared statement
+		          String query = "UPDATE patient SET pFname=?,pLname=?,pNIC=?,pAddress=?,pGender=?,pEmail=?,pAge=?,pPhone=?,pAdmitted=? WHERE pId=?";
+		          
+		          PreparedStatement preparedStmt = con.prepareStatement(query);
+		          
+		// binding values
+            preparedStmt.setString(1, pFname); 
+		    preparedStmt.setString(2, pLname); 
+		    preparedStmt.setString(3, pNIC); 
+		    preparedStmt.setString(4,pAddress); 
+		    preparedStmt.setString(5, pGender); 
+		    preparedStmt.setString(6, pEmail); 
+			preparedStmt.setInt(7, Integer.parseInt(pAge));
+			preparedStmt.setInt(8, Integer.parseInt(pPhone));
+		    preparedStmt.setString(9, pAdmitted);
+			preparedStmt.setInt(10, Integer.parseInt(pId));
+
+
+
+		    
+		 // execute the statement
+		preparedStmt.execute(); 
+		con.close();
+		
+		String newPatient = readPatients();
+		output = "{\"status\":\"success\"}"; 
+		
+		//output = "Updated successfully"; 
+		}
+		catch (Exception e)
+		     {
+			output = "{\"status\":\"error\", \"data\": "
+					+ "\"Error while updating the patient.\"}";
+		        System.err.println(e.getMessage());
+		} 
+		
+		return output;
+		}
+		}
 //		
 //		public String deletePatients(String pId) 
 //		{

@@ -84,6 +84,22 @@ public class PatientAPI extends HttpServlet {
 	 */
 	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		
+		Map paras = getParasMap(request);
+		System.out.println(paras);
+				String output = patiObj.updatePatients(paras.get("hidPatientIDSave").toString(), 
+						paras.get("pFname").toString(),
+						paras.get("pLname").toString(), 
+						paras.get("pNIC").toString(), 
+						paras.get("pAddress").toString(),
+						paras.get("pGender").toString(), 
+						paras.get("pEmail").toString(),
+						paras.get("pAge").toString(), 
+						paras.get("pAge").toString(), 
+                        paras.get("pAdmitted").toString());
+
+				response.getWriter().write(output);
+
 	}
 
 	/**
