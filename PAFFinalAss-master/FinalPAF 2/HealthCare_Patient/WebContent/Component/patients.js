@@ -74,52 +74,51 @@ $(document).on("click", ".btnUpdate", function(event)
 
 
 
-//	
-//	//Remove
-//	$(document).on("click", ".btnRemove", function(event)
-//			{
-//			 	$.ajax(
-//			{
-//				url : "DoctorAPI",
-//				type : "DELETE",
-//				data : "D_Id=" + $(this).val(),
-//				dataType : "text",
-//				complete : function(response, status)
-//				{
-//					onPaymentDeleteComplete(response.responseText, status);
-//				}
-//			 });
-//			});
+		//Remove
+	$(document).on("click", ".btnRemove", function(event)
+			{
+			 	$.ajax(
+			{
+				url : "PatientAPI",
+				type : "DELETE",
+				data : "patientId=" + $(this).val(),
+				dataType : "text",
+				complete : function(response, status)
+				{
+					onPatientDeleteComplete(response.responseText, status);
+				}
+			 });
+			});
 
-//	
-//		function onDoctorDeleteComplete(response, status)
-//		{
-//			if (status == "success")
-//		{
-//				var resultSet = JSON.parse(response);
-//				if (resultSet.status.trim() == "success")
-//		{
-//				$("#alertSuccess").text("Successfully deleted.");
-//				$("#alertSuccess").show();
-//				$("#divDoctorGrid").html(resultSet.data);
-//		} 
-//		else if (resultSet.status.trim() == "error")
-//		{
-//				$("#alertError").text(resultSet.data);
-//				$("#alertError").show();
-//		}
-//		}
-//		else if (status == "error")
-//		{
-//			$("#alertError").text("Error while deleting.");
-//			$("#alertError").show();
-//		} 
-//		else
-//		{
-//			$("#alertError").text("Unknown error while deleting..");
-//			$("#alertError").show();
-//		}
-//}
+	
+		function onPatientDeleteComplete(response, status)
+		{
+			if (status == "success")
+		{
+				var resultSet = JSON.parse(response);
+				if (resultSet.status.trim() == "success")
+		{
+				$("#alertSuccess").text("Successfully deleted.");
+				$("#alertSuccess").show();
+				$("#divDoctorGrid").html(resultSet.data);
+		} 
+		else if (resultSet.status.trim() == "error")
+		{
+				$("#alertError").text(resultSet.data);
+				$("#alertError").show();
+		}
+		}
+		else if (status == "error")
+		{
+			$("#alertError").text("Error while deleting.");
+			$("#alertError").show();
+		} 
+		else
+		{
+			$("#alertError").text("Unknown error while deleting..");
+			$("#alertError").show();
+		}
+}
 		// CLIENT-MODEL================================================================
 		function validatePatientForm() {
 			// First name

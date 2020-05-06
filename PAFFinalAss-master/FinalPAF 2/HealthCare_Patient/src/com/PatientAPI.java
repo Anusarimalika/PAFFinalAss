@@ -107,6 +107,9 @@ public class PatientAPI extends HttpServlet {
 	 */
 	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		Map paras = getParasMap(request);
+		String output = patiObj.deletePatients(paras.get("patientId").toString());
+		response.getWriter().write(output);
 	}
 
 }

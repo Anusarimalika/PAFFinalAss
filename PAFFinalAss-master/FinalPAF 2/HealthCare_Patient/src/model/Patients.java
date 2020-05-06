@@ -217,42 +217,46 @@ private Connection connect() {
 		
 		return output;
 		}
+		
+	
+		public String deletePatients(String pId) 
+		{
+			String output = "";
+			
+			try
+			{
+				
+			       Connection con = connect(); 
+			       
+			       if (con == null)
+			       {return "Error while connecting to the database for deleting."; } 
+			       
+     		       // create a prepared statement
+			         String query = "delete from patient where pId=?"; 
+			         PreparedStatement preparedStmt = con.prepareStatement(query);
+			         
+			      // binding values
+			            preparedStmt.setInt(1, Integer.parseInt(pId));
+		            
+   		        // execute the statement
+			          preparedStmt.execute(); 
+			          con.close();
+			          
+
+			  		String newPatient = readPatients();
+			  		output = "{\"status\":\"success\"}"; 
+			}
+			          
+			catch (Exception e) {
+				
+			
+				output = "{\"status\":\"error\", \"data\": "
+						+ "\"Error while deleting the Doctor.\"}"; 
+				//output = "Error while deleting the Doctor Details.";
+			        System.err.println(e.getMessage());
+			}
+			return output;
+			
 		}
-//		
-//		public String deletePatients(String pId) 
-//		{
-//			String output = "";
-//			
-//			try
-//			{
-//				
-//			       Connection con = connect(); 
-//			       
-//			       if (con == null)
-//			       {return "Error while connecting to the database for deleting."; } 
-//			       
-//     		       // create a prepared statement
-//			         String query = "delete from patient where pId=?"; 
-//			         PreparedStatement preparedStmt = con.prepareStatement(query);
-//			         
-//			      // binding values
-//			            preparedStmt.setInt(1, Integer.parseInt(pId));
-//		            
-//   		        // execute the statement
-//			          preparedStmt.execute(); 
-//			          con.close();
-//			          
-//			          output = "Deleted successfully"; 
-//			}
-//			          
-//			catch (Exception e) {
-//				
-//			
-//			        output = "Error while deleting the patients."; 
-//			        System.err.println(e.getMessage());
-//			}
-//			return output;
-//			
-//		}
-//}
-//
+}
+
