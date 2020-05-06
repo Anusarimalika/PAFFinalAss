@@ -109,8 +109,8 @@ private Connection connect() {
 		String patientAddress = rs.getString("pAddress");
 		String patientGender = rs.getString("pGender");
 		String patientEmail = rs.getString("pEmail");
-		String patientAge = Integer.toString(rs.getInt("pAge"));
-		String patientPhone = Integer.toString(rs.getInt("pPhone"));
+		String patientAge = rs.getString("pAge");
+		String patientPhone = rs.getString("pPhone");
 		String patientAdmitted = rs.getString("pAdmitted");
 
 
