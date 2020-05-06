@@ -1,1 +1,5 @@
-# PAFFinalAss
+# Please read this before downloading...
+
+FinalPaf 2 folder is not correct project folder..
+
+PAFFinalAss-master is the correct project folder...
